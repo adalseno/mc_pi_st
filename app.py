@@ -4,7 +4,7 @@ from numba import njit
 import streamlit as st
 
 @njit(cache=True)
-def pi_sim(N:int=100,seed:int=None)->float:
+def pi_sim(N=100,seed:int=None)->float:
     if seed is not None:
         np.random.seed = seed
     x = np.random.uniform(0,1,size=N)
@@ -12,7 +12,7 @@ def pi_sim(N:int=100,seed:int=None)->float:
     return 4.0 * np.mean(y)
 
 @njit(cache=True)
-def pi_mc(num_sim:int=100)->np.ndarray[float]:
+def pi_mc(N:int=100)->np.ndarray[float]:
     pi = np.zeros((N))
     for i in range(N):
         pi[i]=pi_sim()
