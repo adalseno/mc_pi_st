@@ -30,7 +30,7 @@ st.subheader(
 )
 
 # Select number of trials from listbox
-trial_range = map(lambda x: int(np.power(10, x)), range(2, 8))  # from 100 to 10_000_000
+trial_range = map(lambda x: int(np.power(10, x)), range(2, 7))  # from 100 to 1_000_000
 
 # I used a comma to seprate thousands for better readability
 trials = st.selectbox(
