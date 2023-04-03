@@ -7,21 +7,16 @@ import streamlit as st
 def pi_sim(seed:int=None)->float:
     if seed is not None:
         np.random.seed = seed
-    res = np.zeros((100))
-    err = 0.0
-    #err = np.finfo(np.float64).tiny
-    for i in range(100):
-        x=np.random.uniform(0.0, 1.0+err)
-        y=np.random.uniform(0.0, 1.0+err)
-        res[i] = (x*x+y*y) <=1
-    return 4.0*res.sum()/100
+    x = np.random.uniform(0,1,size=N)
+    y = np.sqrt(1-x**2)
+    return 4.0 * np.mean(y)
 
 @njit(cache=True)
 def pi_mc(num_sim:int=100)->np.ndarray[float]:
-    res = np.zeros((num_sim))
-    for i in range(num_sim):
-        res[i] = pi_sim()
-    return res
+    pi = np.zeros((N))
+    for i in range(N):
+        pi[i]=pi_sim()
+    return pi
 
 # Title and subtitle
 st.title("Monte Carlo simulation")
@@ -30,7 +25,7 @@ st.subheader(
 )
 
 # Select number of trials from listbox
-trial_range = map(lambda x: int(np.power(10, x)), range(2, 7))  # from 100 to 1_000_000
+trial_range = map(lambda x: int(np.power(10, x)), range(2, 8))  # from 100 to 1_000_000
 
 # I used a comma to seprate thousands for better readability
 trials = st.selectbox(
