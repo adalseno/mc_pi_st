@@ -1,5 +1,5 @@
 # Simple Monte Carlo simulation in Streamlit
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://adalseno-st-montecarlo-simulation-m7-app-71jr0q.streamlitapp.com/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://adalseno-mc-pi-st-app-z0t5o2.streamlit.app/)
 
 Simple app to show a Monte Carlo simulation in Streamlit to cumpute $\pi$.<br>
 
