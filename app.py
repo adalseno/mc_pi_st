@@ -4,7 +4,7 @@ from numba import njit
 import streamlit as st
 
 @njit(cache=True)
-def pi_sim(seed:int=None)->float:
+def pi_sim(N:int=100,seed:int=None)->float:
     if seed is not None:
         np.random.seed = seed
     x = np.random.uniform(0,1,size=N)
